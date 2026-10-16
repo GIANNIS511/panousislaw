@@ -280,6 +280,7 @@
             border: 1px solid var(--border-color);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -309,9 +310,26 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.75;
+            margin-bottom: 20px;
         }
 
-        /* Team Section */
+        .card-link {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--bg-deep);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+
+        .card:hover .card-link {
+            color: var(--accent-silver);
+        }
+
+        /* Team Section (now Associates) */
         .team-section {
             padding: 110px 0;
             background: #FFFFFF;
@@ -352,12 +370,6 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(10, 25, 47, 0.1);
-        }
-
-        .team-photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .team-avatar-fallback {
@@ -602,7 +614,7 @@
             color: #FFFFFF !important;
         }
 
-        /* Privacy Policy Modal Styles */
+        /* Modals Styles (Privacy Policy & Practice Areas Detail) */
         .modal {
             display: none;
             position: fixed;
@@ -620,20 +632,21 @@
         .modal-content {
             background: #FFFFFF;
             padding: 45px;
-            max-width: 650px;
+            max-width: 750px;
             width: 90%;
             border-radius: 4px;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            border-top: 4px solid var(--accent-silver);
         }
 
         .modal-close {
             position: absolute;
             top: 20px;
             right: 25px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--text-muted);
             transition: color 0.3s;
@@ -646,15 +659,32 @@
         .modal-content h3 {
             font-family: var(--font-heading);
             color: var(--bg-deep);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
+        }
+
+        .modal-content h4 {
+            font-family: var(--font-heading);
+            color: var(--bg-deep);
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
         }
 
         .modal-content p {
             color: var(--text-muted);
-            font-size: 0.93rem;
+            font-size: 0.98rem;
             margin-bottom: 16px;
-            line-height: 1.7;
+            line-height: 1.8;
+        }
+
+        .modal-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .modal-content li {
+            margin-bottom: 8px;
         }
 
         /* Footer */
@@ -698,6 +728,7 @@
             .hero-section h1 { font-size: 2.4rem; }
             .main-nav { display: none; }
             .contact-container-centered { padding: 30px 20px; }
+            .modal-content { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -712,7 +743,7 @@
             </a>
             <nav class="main-nav">
                 <a href="#services" data-gr="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
-                <a href="#team" data-gr="Η Ομάδα" data-en="Team">Η Ομάδα</a>
+                <a href="#team" data-gr="Οι Συνεργάτες" data-en="Associates">Οι Συνεργάτες</a>
                 <a href="#about" data-gr="Το Γραφείο" data-en="About">Το Γραφείο</a>
                 <a href="#process" data-gr="Διαδικασία" data-en="Process">Διαδικασία</a>
                 <a href="#contact" class="btn-header" data-gr="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
@@ -740,56 +771,68 @@
             <div class="section-header">
                 <span class="section-tag" data-gr="Ειδίκευση &amp; Εμπειρία" data-en="Expertise &amp; Experience">Ειδίκευση &amp; Εμπειρία</span>
                 <h2 data-gr="Τομείς Νομικής Δραστηριότητας" data-en="Practice Areas">Τομείς Νομικής Δραστηριότητας</h2>
-                <p data-gr="Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης." data-en="Targeted and effective legal handling with the highest sense of responsibility.">Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης.</p>
+                <p data-gr="Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης. Κάντε κλικ σε έναν τομέα για αναλυτικές πληροφορίες." data-en="Targeted and effective legal handling with the highest sense of responsibility. Click on a practice area for detailed information.">Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης. Κάντε κλικ σε έναν τομέα για αναλυτικές πληροφορίες.</p>
             </div>
             <div class="cards-grid">
                 
-                <div class="card">
+                <!-- Card 1 -->
+                <div class="card" onclick="openServiceModal('service1')">
                     <div class="card-icon">01</div>
                     <h3 data-gr="Αυτοκινητιστικά Ατυχήματα" data-en="Auto Accidents &amp; Claims">Αυτοκινητιστικά Ατυχήματα</h3>
                     <p data-gr="Πολυετής και αποδεδειγμένη εμπειρία στη διεκδίκηση πλήρους αποζημίωσης για υλικές ζημίες και σωματικές βλάβες, με δυναμικές διαπραγματεύσεις απέναντι στις ασφαλιστικές εταιρείες." data-en="Extensive and proven experience in claiming full compensation for material damages and bodily injuries, through assertive negotiations with insurance companies.">Πολυετής και αποδεδειγμένη εμπειρία στη διεκδίκηση πλήρους αποζημίωσης για υλικές ζημίες και σωματικές βλάβες, με δυναμικές διαπραγματεύσεις απέναντι στις ασφαλιστικές εταιρείες.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
-                <div class="card">
+                <!-- Card 2 -->
+                <div class="card" onclick="openServiceModal('service2')">
                     <div class="card-icon">02</div>
                     <h3 data-gr="Εμπορικό &amp; Εταιρικό Δίκαιο" data-en="Commercial &amp; Corporate Law">Εμπορικό &amp; Εταιρικό Δίκαιο</h3>
                     <p data-gr="Ολοκληρωμένη νομική υποστήριξη επιχειρήσεων, σύσταση εταιρειών, σύνταξη συμβάσεων και στρατηγική πρόληψη ή επίλυση εμπορικών διαφορών." data-en="Comprehensive legal support for businesses, company formation, contract drafting, and strategic prevention or resolution of commercial disputes.">Ολοκληρωμένη νομική υποστήριξη επιχειρήσεων, σύσταση εταιρειών, σύνταξη συμβάσεων και στρατηγική πρόληψη ή επίλυση εμπορικών διαφορών.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
-                <div class="card">
+                <!-- Card 3 -->
+                <div class="card" onclick="openServiceModal('service3')">
                     <div class="card-icon">03</div>
                     <h3 data-gr="Εμπράγματο Δίκαιο &amp; Ακίνητα" data-en="Property &amp; Real Estate Law">Εμπράγματο Δίκαιο &amp; Ακίνητα</h3>
                     <p data-gr="Εμπεριστατωμένοι νομικοί έλεγχοι τίτλων σε Υποθηκοφυλακεία και Κτηματολόγιο, καθώς και πλήρης νομική κάλυψη σε αγοραπωλησίες και ακίνητη περιουσία." data-en="Thorough legal title audits in Land Registries and Cadastre offices, alongside full legal coverage for property transactions and real estate management.">Εμπεριστατωμένοι νομικοί έλεγχοι τίτλων σε Υποθηκοφυλακεία και Κτηματολόγιο, καθώς και πλήρης νομική κάλυψη σε αγοραπωλησίες και ακίνητη περιουσία.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
-                <div class="card">
+                <!-- Card 4 -->
+                <div class="card" onclick="openServiceModal('service4')">
                     <div class="card-icon">04</div>
                     <h3 data-gr="Εξωδικαστικός Μηχανισμός" data-en="Out-of-Court Debt Settlement">Εξωδικαστικός Μηχανισμός</h3>
                     <p data-gr="Αξιοποίηση θεσμικών εργαλείων ρύθμισης οφειλών, διαπραγματεύσεις με πιστωτικά ιδρύματα και funds για τη βιώσιμη προστασία της περιουσίας σας." data-en="Utilization of institutional debt restructuring frameworks, negotiations with financial institutions and funds for sustainable asset protection.">Αξιοποίηση θεσμικών εργαλείων ρύθμισης οφειλών, διαπραγματεύσεις με πιστωτικά ιδρύματα και funds για τη βιώσιμη προστασία της περιουσίας σας.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
-                <div class="card">
+                <!-- Card 5 -->
+                <div class="card" onclick="openServiceModal('service5')">
                     <div class="card-icon">05</div>
                     <h3 data-gr="Οικογενειακό Δίκαιο" data-en="Family Law">Οικογενειακό Δίκαιο</h3>
                     <p data-gr="Διακριτικός και αυστηρά επαγγελματικός χειρισμός ευαίσθητων υποθέσεων, όπως ζητήματα επιμέλειας, διατροφής και συναινετικών ή κατ' αντιδικία διαζυγίων." data-en="Discreet and strictly professional handling of sensitive cases, including custody, alimony, and uncontested or contested divorces.">Διακριτικός και αυστηρά επαγγελματικός χειρισμός ευαίσθητων υποθέσεων, όπως ζητήματα επιμέλειας, διατροφής και συναινετικών ή κατ' αντιδικία διαζυγίων.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
-                <div class="card">
+                <!-- Card 6 -->
+                <div class="card" onclick="openServiceModal('service6')">
                     <div class="card-icon">06</div>
                     <h3 data-gr="Διοικητικό &amp; Μεταναστευτικό" data-en="Administrative &amp; Immigration">Διοικητικό &amp; Μεταναστευτικό</h3>
                     <p data-gr="Νομική εκπροσώπηση ενώπιον διοικητικών αρχών και δικαστηρίων, άδειες διαμονής, Golden Visa και διαδικασίες πολιτογράφησης." data-en="Legal representation before administrative authorities and courts, residence permits, Golden Visa applications, and naturalization procedures.">Νομική εκπροσώπηση ενώπιον διοικητικών αρχών και δικαστηρίων, άδειες διαμονής, Golden Visa και διαδικασίες πολιτογράφησης.</p>
+                    <span class="card-link" data-gr="Αναλυτικά &rarr;" data-en="Read More &rarr;">Αναλυτικά &rarr;</span>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team Section (now Associates) -->
     <section id="team" class="team-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag" data-gr="Οι Συντελεστές" data-en="Professionals">Οι Συντελεστές</span>
-                <h2 data-gr="Η Νομική Ομάδα" data-en="Our Legal Team">Η Νομική Ομάδα</h2>
+                <h2 data-gr="Οι Συνεργάτες" data-en="Associates">Οι Συνεργάτες</h2>
                 <p data-gr="Η ασυμβίβαστη νομική κατάρτιση συναντά την πολυετή εμπειρία στα ακροατήρια." data-en="Uncompromising legal expertise meeting decades of courtroom experience.">Η ασυμβίβαστη νομική κατάρτιση συναντά την πολυετή εμπειρία στα ακροατήρια.</p>
             </div>
             <div class="team-grid">
@@ -903,7 +946,7 @@
         </div>
     </section>
 
-    <!-- Contact Section (Pure Details + WhatsApp) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-container-centered">
@@ -947,10 +990,117 @@
         </div>
     </section>
 
+    <!-- Practice Area Detail Modals (Subpages) -->
+    
+    <!-- Modal 1: Auto Accidents -->
+    <div id="service1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service1')">&times;</span>
+            <h3 data-gr="Αυτοκινητιστικά Ατυχήματα &amp; Αποζημιώσεις" data-en="Auto Accidents &amp; Claims">Αυτοκινητιστικά Ατυχήματα &amp; Αποζημιώσεις</h3>
+            <p data-gr="Το γραφείο μας διαθέτει πολυετή και εξειδικευμένη εμπειρία στον χειρισμό υποθέσεων τροχαίων ατυχημάτων. Αναλαμβάνουμε τη δυναμική εκπροσώπηση των εντολέων μας τόσο εξώδικα όσο και στα ακροατήρια όλων των βαθμίδων." data-en="Our firm possesses extensive specialized experience in handling traffic accident cases. We assertively represent our clients both in out-of-court negotiations and in courtrooms at all levels.">
+                Το γραφείο μας διαθέτει πολυετή και εξειδικευμένη εμπειρία στον χειρισμό υποθέσεων τροχαίων ατυχημάτων. Αναλαμβάνουμε τη δυναμική εκπροσώπηση των εντολέων μας τόσο εξώδικα όσο και στα ακροατήρια όλων των βαθμίδων.
+            </p>
+            <h4 data-gr="Τι Αναλαμβάνουμε:" data-en="Our Services Include:">Τι Αναλαμβάνουμε:</h4>
+            <ul>
+                <li data-gr="Διεκδίκηση αποζημίωσης για υλικές ζημίες οχημάτων και παρεπόμενες δαπάνες." data-en="Claiming compensation for vehicle damage and incidental expenses.">Διεκδίκηση αποζημίωσης για υλικές ζημίες οχημάτων και παρεπόμενες δαπάνες.</li>
+                <li data-gr="Πλήρης κάλυψη σωματικών βλαβών, νοσηλείων και απώλειας εισοδήματος." data-en="Full coverage for bodily injuries, medical expenses, and loss of income.">Πλήρης κάλυψη σωματικών βλαβών, νοσηλείων και απώλειας εισοδήματος.</li>
+                <li data-gr="Χρηματική ικανοποίηση λόγω ηθικής βλάβης ή ψυχικής οδύνης." data-en="Compensation for pain and suffering or emotional distress.">Χρηματική ικανοποίηση λόγω ηθικής βλάβης ή ψυχικής οδύνης.</li>
+                <li data-gr="Διαπραγματεύσεις με ασφαλιστικές εταιρείες για ταχεία εξώδικη επίλυση." data-en="Direct negotiations with insurance companies for prompt out-of-court settlement.">Διαπραγματεύσεις με ασφαλιστικές εταιρείες για ταχεία εξώδικη επίλυση.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 2: Commercial Law -->
+    <div id="service2" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service2')">&times;</span>
+            <h3 data-gr="Εμπορικό &amp; Εταιρικό Δίκαιο" data-en="Commercial &amp; Corporate Law">Εμπορικό &amp; Εταιρικό Δίκαιο</h3>
+            <p data-gr="Παρέχουμε ολοκληρωμένες νομικές συμβουλές σε εμπορικές επιχειρήσεις, διασφαλίζοντας τις συναλλαγές τους και θωρακίζοντάς τες απέναντι σε επιχειρηματικούς κινδύνους." data-en="We provide comprehensive legal counsel to commercial enterprises, securing transactions and safeguarding them against corporate risks.">
+                Παρέχουμε ολοκληρωμένες νομικές συμβουλές σε εμπορικές επιχειρήσεις, διασφαλίζοντας τις συναλλαγές τους και θωρακίζοντάς τες απέναντι σε επιχειρηματικούς κινδύνους.
+            </p>
+            <h4 data-gr="Τομείς Εξειδίκευσης:" data-en="Areas of Expertise:">Τομείς Εξειδίκευσης:</h4>
+            <ul>
+                <li data-gr="Σύσταση, τροποποίηση και λύση εταιρειών όλων των μορφών (OE, EE, ΙΚΕ, ΑΕ)." data-en="Formation, modification, and dissolution of all corporate types.">Σύσταση, τροποποίηση και λύση εταιρειών όλων των μορφών (OE, EE, ΙΚΕ, ΑΕ).</li>
+                <li data-gr="Σύνταξη, έλεγχος και διαπραγμάτευση εμπορικών συμβάσεων." data-en="Drafting, reviewing, and negotiating commercial agreements.">Σύνταξη, έλεγχος και διαπραγμάτευση εμπορικών συμβάσεων.</li>
+                <li data-gr="Διεκδίκηση εμπορικών απαιτήσεων και διαταγές πληρωμής." data-en="Commercial debt collection and payment orders.">Διεκδίκηση εμπορικών απαιτήσεων και διαταγές πληρωμής.</li>
+                <li data-gr="Εταιρική διακυβέρνηση και προστασία εμπορικών σημάτων." data-en="Corporate governance and trademark protection.">Εταιρική διακυβέρνηση και προστασία εμπορικών σημάτων.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 3: Property Law -->
+    <div id="service3" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service3')">&times;</span>
+            <h3 data-gr="Εμπράγματο Δίκαιο &amp; Ακίνητα" data-en="Property &amp; Real Estate Law">Εμπράγματο Δίκαιο &amp; Ακίνητα</h3>
+            <p data-gr="Η διασφάλιση της ακίνητης περιουσίας απαιτεί ενδελεχή έλεγχο και απόλυτη ακρίβεια. Αναλαμβάνουμε το σύνολο των διαδικασιών για ασφαλείς αγοραπωλησίες και διαχείριση ακινήτων." data-en="Safeguarding real estate property requires thorough audits and utmost precision. We manage all legal procedures for secure transactions and property management.">
+                Η διασφάλιση της ακίνητης περιουσίας απαιτεί ενδελεχή έλεγχο και απόλυτη ακρίβεια. Αναλαμβάνουμε το σύνολο των διαδικασιών για ασφαλείς αγοραπωλησίες και διαχείριση ακινήτων.
+            </p>
+            <h4 data-gr="Υπηρεσίες Ακινήτων:" data-en="Real Estate Services:">Υπηρεσίες Ακινήτων:</h4>
+            <ul>
+                <li data-gr="Εμπεριστατωμένοι έλεγχοι τίτλων ιδιοκτησίας σε Υποθηκοφυλακεία και Κτηματολογικά Γραφεία." data-en="Thorough title searches at Land Registries and Cadastral Offices.">Εμπεριστατωμένοι έλεγχοι τίτλων ιδιοκτησίας σε Υποθηκοφυλακεία και Κτηματολογικά Γραφεία.</li>
+                <li data-gr="Νομική παράσταση και στήριξη κατά την υπογραφή συμβολαίων αγοραπωλησίας." data-en="Legal representation during contract execution.">Νομική παράσταση και στήριξη κατά την υπογραφή συμβολαίων αγοραπωλησίας.</li>
+                <li data-gr="Διαφορές συνιδιοκτησίας, μισθωτικές διαφορές και διεκδικητικές αγωγές." data-en="Co-ownership disputes, lease litigation, and property recovery claims.">Διαφορές συνιδιοκτησίας, μισθωτικές διαφορές και διεκδικητικές αγωγές.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 4: Debt Settlement -->
+    <div id="service4" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service4')">&times;</span>
+            <h3 data-gr="Εξωδικαστικός Μηχανισμός &amp; Ρύθμιση Οφειλών" data-en="Out-of-Court Debt Settlement">Εξωδικαστικός Μηχανισμός &amp; Ρύθμιση Οφειλών</h3>
+            <p data-gr="Αξιοποιούμε τα σύγχρονα θεσμικά εργαλεία για τη βιώσιμη ρύθμιση χρεών φυσικών και νομικών προσώπων προς Τράπεζες, Funds, Δημόσιο και Ασφαλιστικά Ταμεία." data-en="We utilize modern legal frameworks to achieve sustainable debt restructuring for individuals and entities with Banks, Funds, and State Tax authorities.">
+                Αξιοποιούμε τα σύγχρονα θεσμικά εργαλεία για τη βιώσιμη ρύθμιση χρεών φυσικών και νομικών προσώπων προς Τράπεζες, Funds, Δημόσιο και Ασφαλιστικά Ταμεία.
+            </p>
+            <h4 data-gr="Στρατηγική Αντιμετώπιση:" data-en="Strategic Approach:">Στρατηγική Αντιμετώπιση:</h4>
+            <ul>
+                <li data-gr="Υποβολή και παρακολούθηση αιτήσεων στην πλατφόρμα του Εξωδικαστικού Μηχανισμού." data-en="Submitting and tracking applications on the Debt Settlement platform.">Υποβολή και παρακολούθηση αιτήσεων στην πλατφόρμα του Εξωδικαστικού Μηχανισμού.</li>
+                <li data-gr="Απευθείας διμερείς διαπραγματεύσεις με πιστωτικά ιδρύματα και servicers." data-en="Direct bilateral negotiations with financial institutions and loan servicers.">Απευθείας διμερείς διαπραγματεύσεις με πιστωτικά ιδρύματα και servicers.</li>
+                <li data-gr="Προστασία κύριας κατοικίας και αναστολή μέτρων αναγκαστικής εκτέλεσης." data-en="Primary residence protection and suspension of enforcement measures.">Προστασία κύριας κατοικίας και αναστολή μέτρων αναγκαστικής εκτέλεσης.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 5: Family Law -->
+    <div id="service5" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service5')">&times;</span>
+            <h3 data-gr="Οικογενειακό Δίκαιο" data-en="Family Law">Οικογενειακό Δίκαιο</h3>
+            <p data-gr="Αντιμετωπίζουμε τις οικογενειακές διαφορές με ιδιαίτερη ευαισθησία, απόλυτη διακριτικότητα και στόχο την προστασία των συμφερόντων των εντολέων μας και των ανηλίκων τέκνων." data-en="We address family disputes with utmost sensitivity, confidentiality, and commitment to safeguarding the best interests of our clients and minor children.">
+                Αντιμετωπίζουμε τις οικογενειακές διαφορές με ιδιαίτερη ευαισθησία, απόλυτη διακριτικότητα και στόχο την προστασία των συμφερόντων των εντολέων μας και των ανηλίκων τέκνων.
+            </p>
+            <h4 data-gr="Υποθέσεις:" data-en="Matters Handled:">Υποθέσεις:</h4>
+            <ul>
+                <li data-gr="Συναινετικά διαζύγια και διαζύγια κατ' αντιδικία." data-en="Uncontested and contested divorce proceedings.">Συναινετικά διαζύγια και διαζύγια κατ' αντιδικία.</li>
+                <li data-gr="Ρύθμιση επιμέλειας, επικοινωνίας και διατροφής τέκνων." data-en="Child custody, visitation rights, and alimony determinations.">Ρύθμιση επιμέλειας, επικοινωνίας και διατροφής τέκνων.</li>
+                <li data-gr="Αξιώσεις συμμετοχής στα αποκτήματα του γάμου." data-en="Claims for participation in marital assets acquisition.">Αξιώσεις συμμετοχής στα αποκτήματα του γάμου.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 6: Administrative Law -->
+    <div id="service6" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal('service6')">&times;</span>
+            <h3 data-gr="Διοικητικό &amp; Μεταναστευτικό Δίκαιο" data-en="Administrative &amp; Immigration Law">Διοικητικό &amp; Μεταναστευτικό Δίκαιο</h3>
+            <p data-gr="Παρέχουμε νομική εκπροσώπηση ενώπιον των Διοικητικών Αρχών και Δικαστηρίων, καθώς και εξειδικευμένες υπηρεσίες σε αλλοδαπούς πολίτες και επενδυτές." data-en="We offer legal representation before Administrative Authorities and Courts, as well as specialized immigration services for foreign citizens and investors.">
+                Παρέχουμε νομική εκπροσώπηση ενώπιον των Διοικητικών Αρχών και Δικαστηρίων, καθώς και εξειδικευμένες υπηρεσίες σε αλλοδαπούς πολίτες και επενδυτές.
+            </p>
+            <h4 data-gr="Υπηρεσίες:" data-en="Services:">Υπηρεσίες:</h4>
+            <ul>
+                <li data-gr="Έκδοση και ανανέωση αδειών διαμονής όλων των τύπων." data-en="Issuance and renewal of all types of residence permits.">Έκδοση και ανανέωση αδειών διαμονής όλων των τύπων.</li>
+                <li data-gr="Διαδικασία Golden Visa για επενδυτές ακινήτων." data-en="Golden Visa application procedure for real estate investors.">Διαδικασία Golden Visa για επενδυτές ακινήτων.</li>
+                <li data-gr="Υποθέσεις πολιτογράφησης και ελληνικής ιθαγένειας." data-en="Naturalization and Greek citizenship applications.">Υποθέσεις πολιτογράφησης και ελληνικής ιθαγένειας.</li>
+                <li data-gr="Προσφυγές κατά διοικητικών προστίμων και πράξεων καταλογισμού." data-en="Appeals against administrative fines and tax assessments.">Προσφυγές κατά διοικητικών προστίμων και πράξεων καταλογισμού.</li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Privacy Policy Modal -->
     <div id="privacyModal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <span class="modal-close" onclick="closeServiceModal('privacyModal')">&times;</span>
             <h3 data-gr="Πολιτική Προστασίας Δεδομένων (GDPR)" data-en="Privacy Policy (GDPR)">Πολιτική Προστασίας Δεδομένων (GDPR)</h3>
             <p data-gr="Το Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες σέβεται απόλυτα το απόρρητο και την ιδιωτικότητά σας. Κατά την επικοινωνία σας μαζί μας μέσω τηλεφώνου, WhatsApp ή email, τα δεδομένα σας συλλέγονται αποκλειστικά και μόνο με σκοπό τον νομικό χειρισμό της υπόθεσής σας, βάσει του Γενικού Κανονισμού Προστασίας Δεδομένων (EE 2016/679)." data-en="Panousis &amp; Associates Law Firm strictly respects your privacy. When contacting us via phone, WhatsApp, or email, your data is collected exclusively for handling your legal inquiry, in compliance with the General Data Protection Regulation (EU 2016/679).">
                 Το Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες σέβεται απόλυτα το απόρρητο και την ιδιωτικότητά σας. Κατά την επικοινωνία σας μαζί μας μέσω τηλεφώνου, WhatsApp ή email, τα δεδομένα σας συλλέγονται αποκλειστικά και μόνο με σκοπό τον νομικό χειρισμό της υπόθεσής σας, βάσει του Γενικού Κανονισμού Προστασίας Δεδομένων (EE 2016/679).
@@ -965,13 +1115,13 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-links">
-                <a onclick="openModal()" data-gr="Πολιτική Απορρήτου" data-en="Privacy Policy">Πολιτική Απορρήτου</a>
+                <a onclick="openServiceModal('privacyModal')" data-gr="Πολιτική Απορρήτου" data-en="Privacy Policy">Πολιτική Απορρήτου</a>
             </div>
             <p data-gr="&copy; 2026 Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες. Όλα τα δικαιώματα διατηρούνται." data-en="&copy; 2026 Panousis &amp; Associates Law Firm. All rights reserved.">&copy; 2026 Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες. Όλα τα δικαιώματα διατηρούνται.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Bilingual Switching & Modal -->
+    <!-- JavaScript for Bilingual Switching & Modals -->
     <script>
         let currentLang = 'gr';
 
@@ -986,20 +1136,19 @@
             });
         }
 
-        // Modal Functions
-        function openModal() {
-            document.getElementById('privacyModal').style.display = 'flex';
+        // Service & Privacy Modals Functions
+        function openServiceModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
         }
 
-        function closeModal() {
-            document.getElementById('privacyModal').style.display = 'none';
+        function closeServiceModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
-        // Close modal when clicking outside of it
+        // Close modal when clicking outside of modal content
         window.onclick = function(event) {
-            const modal = document.getElementById('privacyModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
             }
         }
     </script>
