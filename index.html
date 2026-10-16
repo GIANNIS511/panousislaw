@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πανούσης &amp; Συνεργάτες | Δικηγορικό Γραφείο Θεσσαλονίκη</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #0A192F;       /* Luxurious Midnight Navy */
+            --accent-silver: #94A3B8; /* Modern Platinum Silver */
+            --accent-light: #E2E8F0;  /* Soft Border Silver */
+            --bg-light: #FAFAFC;      /* Soft Warm White */
+            --card-bg: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header & Nav */
+        .site-header {
+            background: var(--bg-deep);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 24px 0;
+            box-shadow: 0 4px 20px rgba(10, 25, 47, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+        }
+
+        .brand-sub {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--accent-silver);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #E2E8F0;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-silver);
+        }
+
+        .lang-switch {
+            background: transparent;
+            border: 1px solid var(--accent-silver);
+            color: var(--accent-silver);
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+
+        .lang-switch:hover {
+            background: var(--accent-silver);
+            color: var(--bg-deep);
+        }
+
+        .btn-header {
+            background: transparent !important;
+            border: 1px solid var(--accent-silver) !important;
+            color: var(--accent-silver) !important;
+            padding: 10px 20px !important;
+            border-radius: 2px !important;
+            transition: all 0.3s !important;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-silver) !important;
+            color: var(--bg-deep) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 130px 0 110px;
+            background: linear-gradient(135deg, var(--bg-deep) 0%, #132744 100%);
+            color: #FFFFFF;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent-silver);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-silver);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            line-height: 1.3;
+            color: #FFFFFF;
+            max-width: 900px;
+            margin: 0 auto 24px;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            font-size: 1.15rem;
+            color: #94A3B8;
+            max-width: 750px;
+            margin: 0 auto 48px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--accent-silver);
+            color: var(--bg-deep);
+            padding: 16px 36px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+            padding: 16px 36px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: transparent;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-silver);
+            background: rgba(148, 163, 184, 0.05);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 110px 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--bg-deep);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 45px 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.06);
+            border-color: var(--accent-silver);
+        }
+
+        .card-icon {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            color: var(--bg-deep);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 110px 0;
+            background: #FFFFFF;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: var(--bg-light);
+            padding: 45px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+        }
+
+        .team-photo-container {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--bg-deep);
+            border: 2px solid var(--accent-silver);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(10, 25, 47, 0.1);
+        }
+
+        .team-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-avatar-fallback {
+            color: var(--accent-silver);
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .team-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--bg-deep);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .team-role {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .team-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 110px 0;
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--bg-deep);
+            margin-bottom: 12px;
+        }
+
+        .about-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 0.98rem;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .highlight-card {
+            background: #FFFFFF;
+            border-left: 3px solid var(--accent-silver);
+            padding: 28px;
+            border-radius: 4px;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .highlight-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .highlight-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--bg-deep);
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: var(--bg-deep);
+            color: #fff;
+            padding: 110px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .step {
+            border-left: 2px solid var(--accent-silver);
+            padding-left: 28px;
+        }
+
+        .step-number {
+            font-family: var(--font-heading);
+            color: var(--accent-silver);
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .step h4 {
+            font-family: var(--font-heading);
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .step p {
+            color: #94A3B8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 110px 0;
+            background: #FFFFFF;
+        }
+
+        .contact-container-centered {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 60px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.04);
+        }
+
+        .contact-header-centered {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header-centered h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--bg-deep);
+            margin-bottom: 16px;
+        }
+
+        .contact-header-centered p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .contact-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            border-top: 3px solid var(--accent-silver);
+        }
+
+        .info-card strong {
+            display: block;
+            color: var(--bg-deep);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .info-card span {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .info-card a {
+            color: var(--bg-deep);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .info-card a:hover {
+            color: var(--text-muted);
+        }
+
+        .whatsapp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            background: #25D366;
+            color: #FFFFFF !important;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-badge:hover {
+            opacity: 0.9;
+            color: #FFFFFF !important;
+        }
+
+        /* Privacy Policy Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #FFFFFF;
+            padding: 45px;
+            max-width: 650px;
+            width: 90%;
+            border-radius: 4px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-content h3 {
+            font-family: var(--font-heading);
+            color: var(--bg-deep);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #060F1D;
+            color: #64748B;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .hero-section h1 { font-size: 2.4rem; }
+            .main-nav { display: none; }
+            .contact-container-centered { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="brand-logo">
+                <span class="brand-name" data-gr="Πανούσης &amp; Συνεργάτες" data-en="Panousis &amp; Associates">Πανούσης &amp; Συνεργάτες</span>
+                <span class="brand-sub" data-gr="Δικηγορικό Γραφείο" data-en="Law Firm">Δικηγορικό Γραφείο</span>
+            </a>
+            <nav class="main-nav">
+                <a href="#services" data-gr="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                <a href="#team" data-gr="Η Ομάδα" data-en="Team">Η Ομάδα</a>
+                <a href="#about" data-gr="Το Γραφείο" data-en="About">Το Γραφείο</a>
+                <a href="#process" data-gr="Διαδικασία" data-en="Process">Διαδικασία</a>
+                <a href="#contact" class="btn-header" data-gr="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <span class="hero-badge" data-gr="40+ Χρόνια Νομικής Παράδοσης στη Θεσσαλονίκη" data-en="40+ Years of Legal Heritage in Thessaloniki">40+ Χρόνια Νομικής Παράδοσης στη Θεσσαλονίκη</span>
+            <h1 data-gr="Αποδεδειγμένο Κύρος &amp; Στρατηγική Νομική Υποστήριξη" data-en="Proven Authority &amp; Strategic Legal Counsel">Αποδεδειγμένο Κύρος &amp; Στρατηγική Νομική Υποστήριξη</h1>
+            <p data-gr="Συνδυάζουμε τη βαθιά δικαστηριακή εμπειρία δεκαετιών με την απόλυτη αφοσίωση στην προάσπιση των συμφερόντων σας." data-en="Combining decades of trial experience with absolute dedication to safeguarding your rights and interests.">Συνδυάζουμε τη βαθιά δικαστηριακή εμπειρία δεκαετιών με την απόλυτη αφοσίωση στην προάσπιση των συμφερόντων σας.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary" data-gr="Στοιχεία Επικοινωνίας" data-en="Contact Details">Στοιχεία Επικοινωνίας</a>
+                <a href="#services" class="btn-outline" data-gr="Οι Τομείς Μας" data-en="Our Practice Areas">Οι Τομείς Μας</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-gr="Ειδίκευση &amp; Εμπειρία" data-en="Expertise &amp; Experience">Ειδίκευση &amp; Εμπειρία</span>
+                <h2 data-gr="Τομείς Νομικής Δραστηριότητας" data-en="Practice Areas">Τομείς Νομικής Δραστηριότητας</h2>
+                <p data-gr="Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης." data-en="Targeted and effective legal handling with the highest sense of responsibility.">Στοχευμένος και αποτελεσματικός χειρισμός υποθέσεων με υψηλό αίσθημα ευθύνης.</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div class="card-icon">01</div>
+                    <h3 data-gr="Αυτοκινητιστικά Ατυχήματα" data-en="Auto Accidents &amp; Claims">Αυτοκινητιστικά Ατυχήματα</h3>
+                    <p data-gr="Πολυετής και αποδεδειγμένη εμπειρία στη διεκδίκηση πλήρους αποζημίωσης για υλικές ζημίες και σωματικές βλάβες, με δυναμικές διαπραγματεύσεις απέναντι στις ασφαλιστικές εταιρείες." data-en="Extensive and proven experience in claiming full compensation for material damages and bodily injuries, through assertive negotiations with insurance companies.">Πολυετής και αποδεδειγμένη εμπειρία στη διεκδίκηση πλήρους αποζημίωσης για υλικές ζημίες και σωματικές βλάβες, με δυναμικές διαπραγματεύσεις απέναντι στις ασφαλιστικές εταιρείες.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">02</div>
+                    <h3 data-gr="Εμπορικό &amp; Εταιρικό Δίκαιο" data-en="Commercial &amp; Corporate Law">Εμπορικό &amp; Εταιρικό Δίκαιο</h3>
+                    <p data-gr="Ολοκληρωμένη νομική υποστήριξη επιχειρήσεων, σύσταση εταιρειών, σύνταξη συμβάσεων και στρατηγική πρόληψη ή επίλυση εμπορικών διαφορών." data-en="Comprehensive legal support for businesses, company formation, contract drafting, and strategic prevention or resolution of commercial disputes.">Ολοκληρωμένη νομική υποστήριξη επιχειρήσεων, σύσταση εταιρειών, σύνταξη συμβάσεων και στρατηγική πρόληψη ή επίλυση εμπορικών διαφορών.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">03</div>
+                    <h3 data-gr="Εμπράγματο Δίκαιο &amp; Ακίνητα" data-en="Property &amp; Real Estate Law">Εμπράγματο Δίκαιο &amp; Ακίνητα</h3>
+                    <p data-gr="Εμπεριστατωμένοι νομικοί έλεγχοι τίτλων σε Υποθηκοφυλακεία και Κτηματολόγιο, καθώς και πλήρης νομική κάλυψη σε αγοραπωλησίες και ακίνητη περιουσία." data-en="Thorough legal title audits in Land Registries and Cadastre offices, alongside full legal coverage for property transactions and real estate management.">Εμπεριστατωμένοι νομικοί έλεγχοι τίτλων σε Υποθηκοφυλακεία και Κτηματολόγιο, καθώς και πλήρης νομική κάλυψη σε αγοραπωλησίες και ακίνητη περιουσία.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">04</div>
+                    <h3 data-gr="Εξωδικαστικός Μηχανισμός" data-en="Out-of-Court Debt Settlement">Εξωδικαστικός Μηχανισμός</h3>
+                    <p data-gr="Αξιοποίηση θεσμικών εργαλείων ρύθμισης οφειλών, διαπραγματεύσεις με πιστωτικά ιδρύματα και funds για τη βιώσιμη προστασία της περιουσίας σας." data-en="Utilization of institutional debt restructuring frameworks, negotiations with financial institutions and funds for sustainable asset protection.">Αξιοποίηση θεσμικών εργαλείων ρύθμισης οφειλών, διαπραγματεύσεις με πιστωτικά ιδρύματα και funds για τη βιώσιμη προστασία της περιουσίας σας.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">05</div>
+                    <h3 data-gr="Οικογενειακό Δίκαιο" data-en="Family Law">Οικογενειακό Δίκαιο</h3>
+                    <p data-gr="Διακριτικός και αυστηρά επαγγελματικός χειρισμός ευαίσθητων υποθέσεων, όπως ζητήματα επιμέλειας, διατροφής και συναινετικών ή κατ' αντιδικία διαζυγίων." data-en="Discreet and strictly professional handling of sensitive cases, including custody, alimony, and uncontested or contested divorces.">Διακριτικός και αυστηρά επαγγελματικός χειρισμός ευαίσθητων υποθέσεων, όπως ζητήματα επιμέλειας, διατροφής και συναινετικών ή κατ' αντιδικία διαζυγίων.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">06</div>
+                    <h3 data-gr="Διοικητικό &amp; Μεταναστευτικό" data-en="Administrative &amp; Immigration">Διοικητικό &amp; Μεταναστευτικό</h3>
+                    <p data-gr="Νομική εκπροσώπηση ενώπιον διοικητικών αρχών και δικαστηρίων, άδειες διαμονής, Golden Visa και διαδικασίες πολιτογράφησης." data-en="Legal representation before administrative authorities and courts, residence permits, Golden Visa applications, and naturalization procedures.">Νομική εκπροσώπηση ενώπιον διοικητικών αρχών και δικαστηρίων, άδειες διαμονής, Golden Visa και διαδικασίες πολιτογράφησης.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-gr="Οι Συντελεστές" data-en="Professionals">Οι Συντελεστές</span>
+                <h2 data-gr="Η Νομική Ομάδα" data-en="Our Legal Team">Η Νομική Ομάδα</h2>
+                <p data-gr="Η ασυμβίβαστη νομική κατάρτιση συναντά την πολυετή εμπειρία στα ακροατήρια." data-en="Uncompromising legal expertise meeting decades of courtroom experience.">Η ασυμβίβαστη νομική κατάρτιση συναντά την πολυετή εμπειρία στα ακροατήρια.</p>
+            </div>
+            <div class="team-grid">
+                
+                <!-- Μέλος 1: Γεώργιος Πανούσης -->
+                <div class="team-card">
+                    <div class="team-photo-container">
+                        <div class="team-avatar-fallback">ΓΠ</div>
+                    </div>
+                    <h3 data-gr="Γεώργιος Πανούσης" data-en="Georgios Panousis">Γεώργιος Πανούσης</h3>
+                    <div class="team-role" data-gr="Ιδρυτής &amp; Μαχόμενος Δικηγόρος" data-en="Founder &amp; Trial Attorney">Ιδρυτής &amp; Μαχόμενος Δικηγόρος</div>
+                    <p data-gr="Με περισσότερα από 40 χρόνια αδιάλειπτης παρουσίας στα δικαστήρια, εγγυάται το υψηλότατο κύρος και την αποτελεσματικότητα στη διαχείριση απαιτητικών υποθέσεων." data-en="With over 40 years of continuous presence in courtrooms, ensuring the highest level of authority and effectiveness in handling complex cases.">Με περισσότερα από 40 χρόνια αδιάλειπτης παρουσίας στα δικαστήρια, εγγυάται το υψηλότατο κύρος και την αποτελεσματικότητα στη διαχείριση απαιτητικών υποθέσεων.</p>
+                </div>
+
+                <!-- Μέλος 2: Μαρία Ζερζελίδου -->
+                <div class="team-card">
+                    <div class="team-photo-container">
+                        <div class="team-avatar-fallback">ΜΖ</div>
+                    </div>
+                    <h3 data-gr="Μαρία Ζερζελίδου" data-en="Maria Zerzelidou">Μαρία Ζερζελίδου</h3>
+                    <div class="team-role" data-gr="Δικηγόρος" data-en="Attorney at Law">Δικηγόρος</div>
+                    <p data-gr="Εξειδικευμένη νομική υποστήριξη με πολυετή εμπειρία σε δικαστικό και συμβουλευτικό επίπεδο, διασφαλίζοντας την άμεση και αποτελεσματική προάσπιση των εντολέων μας." data-en="Specialized legal support with extensive experience in both litigation and advisory roles, ensuring the prompt and effective defense of our clients' interests.">Εξειδικευμένη νομική υποστήριξη με πολυετή εμπειρία σε δικαστικό και συμβουλευτικό επίπεδο, διασφαλίζοντας την άμεση και αποτελεσματική προάσπιση των εντολέων μας.</p>
+                </div>
+
+                <!-- Μέλος 3: Ιωάννης Πανούσης -->
+                <div class="team-card">
+                    <div class="team-photo-container">
+                        <div class="team-avatar-fallback">ΙΠ</div>
+                    </div>
+                    <h3 data-gr="Ιωάννης Πανούσης" data-en="Ioannis Panousis">Ιωάννης Πανούσης</h3>
+                    <div class="team-role" data-gr="Δικηγόρος Παρ' Εφέταις" data-en="Attorney at Law (Court of Appeals)">Δικηγόρος Παρ' Εφέταις</div>
+                    <p data-gr="Εξειδικευμένος στο Εμπορικό και Εταιρικό Δίκαιο, συντονίζει τη στρατηγική του γραφείου με έμφαση στην πρόληψη και την επιχειρηματική ασφάλεια." data-en="Specialized in Commercial and Corporate Law, coordinating firm strategy with a strong focus on risk prevention and business security.">Εξειδικευμένος στο Εμπορικό και Εταιρικό Δίκαιο, συντονίζει τη στρατηγική του γραφείου με έμφαση στην πρόληψη και την επιχειρηματική ασφάλεια.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                
+                <div class="about-content">
+                    <span class="section-tag" style="margin-bottom: 12px; display: block;" data-gr="Η Ταυτότητά μας" data-en="Our Identity">Η Ταυτότητά μας</span>
+                    <h2 data-gr="Σχετικά με το Γραφείο" data-en="About the Firm">Σχετικά με το Γραφείο</h2>
+                    <p class="about-subtitle" data-gr="Οικογενειακή Παράδοση &amp; Πανελλαδική Δίκτυωση" data-en="Family Heritage &amp; Nationwide Network">Οικογενειακή Παράδοση &amp; Πανελλαδική Δίκτυωση</p>
+                    
+                    <p data-gr="Ως γραφείο με <strong>οικογενειακή παράδοση άνω των 40 ετών</strong> στη μαχόμενη δικηγορία, συνδυάζουμε το θεσμικό κύρος δεκαετιών με τη σύγχρονη και ευέλικτη νομική σκέψη." data-en="As a firm with a <strong>family heritage of over 40 years</strong> in active litigation, we combine institutional prestige built over decades with modern, agile legal thinking.">
+                        Ως γραφείο με <strong>οικογενειακή παράδοση άνω των 40 ετών</strong> στη μαχόμενη δικηγορία, συνδυάζουμε το θεσμικό κύρος δεκαετιών με τη σύγχρονη και ευέλικτη νομική σκέψη.
+                    </p>
+
+                    <p data-gr="Ειδικευόμαστε στις <strong>αυτοκινητιστικές διαφορές και την αποζημίωση</strong>, καθώς και στο <strong>Εμπορικό Δίκαιο</strong>, διατελώντας σταθεροί σύμβουλοι σε σημαντικές εμπορικές επιχειρήσεις." data-en="We specialize in <strong>motor vehicle accidents and compensation claims</strong>, as well as <strong>Commercial Law</strong>, serving as trusted legal counsels for prominent business enterprises.">
+                        Ειδικευόμαστε στις <strong>αυτοκινητιστικές διαφορές και την αποζημίωση</strong>, καθώς και στο <strong>Εμπορικό Δίκαιο</strong>, διατελώντας σταθεροί σύμβουλοι σε σημαντικές εμπορικές επιχειρήσεις.
+                    </p>
+                    
+                    <p data-gr="Παράλληλα, διατηρούμε <strong>οργανωμένο δίκτυο έμπειρων συνεργατών σε Θεσσαλία και Αθήνα</strong>, διασφαλίζοντας την απρόσκοπτη εκπροσώπηση των εντολέων μας σε πανελλαδικό επίπεδο." data-en="Furthermore, we maintain an <strong>organized network of experienced associates in Thessaly and Athens</strong>, ensuring seamless representation for our clients nationwide.">
+                        Παράλληλα, διατηρούμε <strong>οργανωμένο δίκτυο έμπειρων συνεργατών σε Θεσσαλία και Αθήνα</strong>, διασφαλίζοντας την απρόσκοπτη εκπροσώπηση των εντολέων μας σε πανελλαδικό επίπεδο.
+                    </p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-tag" data-gr="40+ Έτη" data-en="40+ Years">40+ Έτη</div>
+                        <h4 data-gr="Παράδοση &amp; Κύρος" data-en="Heritage &amp; Authority">Παράδοση &amp; Κύρος</h4>
+                        <p data-gr="Αδιάλειπτη παρουσία στη μαχόμενη δικηγορία με υψηλό αίσθημα ευθύνης." data-en="Uninterrupted presence in active litigation guided by core ethical values.">Αδιάλειπτη παρουσία στη μαχόμενη δικηγορία με υψηλό αίσθημα ευθύνης.</p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <div class="highlight-tag" data-gr="Πανελλαδική Κάλυψη" data-en="Nationwide Reach">Πανελλαδική Κάλυψη</div>
+                        <h4 data-gr="Δίκτυο σε Θεσσαλία &amp; Αθήνα" data-en="Network in Athens &amp; Thessaly">Δίκτυο σε Θεσσαλία &amp; Αθήνα</h4>
+                        <p data-gr="Συνεργασίες υψηλού επιπέδου για νομική εκπροσώπηση εκτός Θεσσαλονίκης." data-en="High-level partnerships for legal representation outside Thessaloniki.">Συνεργασίες υψηλού επιπέδου για νομική εκπροσώπηση εκτός Θεσσαλονίκης.</p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <div class="highlight-tag" data-gr="Επιχειρηματική Στήριξη" data-en="Corporate Support">Επιχειρηματική Στήριξη</div>
+                        <h4 data-gr="Εμπορικό Δίκαιο" data-en="Commercial Law">Εμπορικό Δίκαιο</h4>
+                        <p data-gr="Στρατηγική καθοδήγηση και διασφάλιση συναλλαγών για εταιρείες." data-en="Strategic guidance and transaction security for enterprises.">Στρατηγική καθοδήγηση και διασφάλιση συναλλαγών για εταιρείες.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-gr="Μεθοδολογία" data-en="Methodology">Μεθοδολογία</span>
+                <h2 style="color: #fff;" data-gr="Η Διαδικασία Συνεργασίας" data-en="Our Working Process">Η Διαδικασία Συνεργασίας</h2>
+                <p style="color: #94A3B8;" data-gr="Δομημένα βήματα για την εγγυημένη προστασία των συμφερόντων σας." data-en="Structured steps to guarantee the protection of your interests.">Δομημένα βήματα για την εγγυημένη προστασία των συμφερόντων σας.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h4 data-gr="Αρχική Αξιολόγηση" data-en="Initial Evaluation">Αρχική Αξιολόγηση</h4>
+                    <p data-gr="Εις βάθος ανάλυση των πραγματικών και νομικών δεδομένων της υπόθεσης και χάραξη της κατάλληλης στρατηγικής." data-en="In-depth analysis of the factual and legal background of your case to outline the optimal strategy.">Εις βάθος ανάλυση των πραγματικών και νομικών δεδομένων της υπόθεσης και χάραξη της κατάλληλης στρατηγικής.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h4 data-gr="Στρατηγικός Χειρισμός" data-en="Strategic Handling">Στρατηγικός Χειρισμός</h4>
+                    <p data-gr="Συγκέντρωση αποδεικτικού υλικού, σύνταξη δικογράφων και εξώδικες διαπραγματεύσεις με τους εμπλεκόμενους φορείς." data-en="Gathering evidence, drafting legal documents, and conducting out-of-court negotiations with relevant parties.">Συγκέντρωση αποδεικτικού υλικού, σύνταξη δικογράφων και εξώδικες διαπραγματεύσεις με τους εμπλεκόμενους φορείς.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h4 data-gr="Επίλυση &amp; Δικαίωση" data-en="Resolution &amp; Vindication">Επίλυση &amp; Δικαίωση</h4>
+                    <p data-gr="Αποτελεσματική εκπροσώπηση στα δικαστήρια ή οριστική εξωδικαστική διευθέτηση με απόλυτη διαφάνεια." data-en="Effective representation in court or final out-of-court settlement handled with absolute transparency.">Αποτελεσματική εκπροσώπηση στα δικαστήρια ή οριστική εξωδικαστική διευθέτηση με απόλυτη διαφάνεια.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Pure Details + WhatsApp) -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-container-centered">
+                <div class="contact-header-centered">
+                    <span class="section-tag" data-gr="Επικοινωνία" data-en="Contact Us">Επικοινωνία</span>
+                    <h2 data-gr="Συνδεθείτε Μαζί Μας" data-en="Get in Touch">Συνδεθείτε Μαζί Μας</h2>
+                    <p data-gr="Είμαστε στη διάθεσή σας για να εξετάσουμε την υπόθεσή σας με εχεμύθεια και επαγγελματισμό." data-en="We are at your disposal to review your case with strict confidentiality and professionalism.">Είμαστε στη διάθεσή σας για να εξετάσουμε την υπόθεσή σας με εχεμύθεια και επαγγελματισμό.</p>
+                </div>
+
+                <div class="contact-details-grid">
+                    <div class="info-card">
+                        <strong data-gr="Έδρα Θεσσαλονίκη" data-en="Thessaloniki Headquarters">Έδρα Θεσσαλονίκη</strong>
+                        <span data-gr="Εγνατία 86, Θεσσαλονίκη<br>Τ.Κ. 546 22" data-en="86 Egnatia St., Thessaloniki, Greece<br>Postal Code: 546 22">Εγνατία 86, Θεσσαλονίκη<br>Τ.Κ. 546 22</span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong data-gr="Πανελλαδικό Δίκτυο" data-en="Nationwide Network">Πανελλαδικό Δίκτυο</strong>
+                        <span data-gr="Συνεργάτες σε Αθήνα &amp; Θεσσαλία" data-en="Associates in Athens &amp; Thessaly">Συνεργάτες σε Αθήνα &amp; Θεσσαλία</span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong data-gr="Τηλέφωνα Επικοινωνίας" data-en="Phone Numbers">Τηλέφωνα Επικοινωνίας</strong>
+                        <span data-gr="Σταθερό: <a href='tel:2310221939'>2310 221939</a><br>Κινητό: <a href='tel:6980412257'>6980 412257</a>" data-en="Landline: <a href='tel:+302310221939'>+30 2310 221939</a><br>Mobile: <a href='tel:+306980412257'>+30 6980 412257</a>">Σταθερό: <a href="tel:2310221939">2310 221939</a><br>Κινητό: <a href="tel:6980412257">6980 412257</a></span>
+                        <br>
+                        <a href="https://wa.me/306980412257" target="_blank" class="whatsapp-badge">
+                            💬 WhatsApp Chat
+                        </a>
+                    </div>
+
+                    <div class="info-card">
+                        <strong data-gr="Ηλεκτρονικό Ταχυδρομείο" data-en="Email Address">Ηλεκτρονικό Ταχυδρομείο</strong>
+                        <span><a href="mailto:info@panousislaw.gr">info@panousislaw.gr</a></span>
+                    </div>
+
+                    <div class="info-card" style="grid-column: 1 / -1;">
+                        <strong data-gr="Ώρες Λειτουργίας" data-en="Office Hours">Ώρες Λειτουργίας</strong>
+                        <span data-gr="Δευτέρα - Παρασκευή: 10:00 - 13:00 &amp; 17:00 - 20:00 (Κατόπιν Ραντεβού)" data-en="Monday - Friday: 10:00 - 13:00 &amp; 17:00 - 20:00 (By Appointment)">Δευτέρα - Παρασκευή: 10:00 - 13:00 &amp; 17:00 - 20:00 (Κατόπιν Ραντεβού)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 data-gr="Πολιτική Προστασίας Δεδομένων (GDPR)" data-en="Privacy Policy (GDPR)">Πολιτική Προστασίας Δεδομένων (GDPR)</h3>
+            <p data-gr="Το Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες σέβεται απόλυτα το απόρρητο και την ιδιωτικότητά σας. Κατά την επικοινωνία σας μαζί μας μέσω τηλεφώνου, WhatsApp ή email, τα δεδομένα σας συλλέγονται αποκλειστικά και μόνο με σκοπό τον νομικό χειρισμό της υπόθεσής σας, βάσει του Γενικού Κανονισμού Προστασίας Δεδομένων (EE 2016/679)." data-en="Panousis &amp; Associates Law Firm strictly respects your privacy. When contacting us via phone, WhatsApp, or email, your data is collected exclusively for handling your legal inquiry, in compliance with the General Data Protection Regulation (EU 2016/679).">
+                Το Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες σέβεται απόλυτα το απόρρητο και την ιδιωτικότητά σας. Κατά την επικοινωνία σας μαζί μας μέσω τηλεφώνου, WhatsApp ή email, τα δεδομένα σας συλλέγονται αποκλειστικά και μόνο με σκοπό τον νομικό χειρισμό της υπόθεσής σας, βάσει του Γενικού Κανονισμού Προστασίας Δεδομένων (EE 2016/679).
+            </p>
+            <p data-gr="Τα δεδομένα σας δεν διαβιβάζονται σε τρίτους και προστατεύονται με αυστηρά μέτρα ασφαλείας. Διατηρείτε ανά πάσα στιγμή το δικαίωμα πρόσβασης, διόρθωσης ή διαγραφής των δεδομένων σας επικοινωνώντας μαζί μας στο info@panousislaw.gr." data-en="Your data is never shared with third parties and is protected under strict security measures. You retain the right to access, rectify, or erase your data at any time by contacting us at info@panousislaw.gr.">
+                Τα δεδομένα σας δεν διαβιβάζονται σε τρίτους και προστατεύονται με αυστηρά μέτρα ασφαλείας. Διατηρείτε ανά πάσα στιγμή το δικαίωμα πρόσβασης, διόρθωσης ή διαγραφής των δεδομένων σας επικοινωνώντας μαζί μας στο info@panousislaw.gr.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a onclick="openModal()" data-gr="Πολιτική Απορρήτου" data-en="Privacy Policy">Πολιτική Απορρήτου</a>
+            </div>
+            <p data-gr="&copy; 2026 Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες. Όλα τα δικαιώματα διατηρούνται." data-en="&copy; 2026 Panousis &amp; Associates Law Firm. All rights reserved.">&copy; 2026 Δικηγορικό Γραφείο Πανούσης &amp; Συνεργάτες. Όλα τα δικαιώματα διατηρούνται.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Bilingual Switching & Modal -->
+    <script>
+        let currentLang = 'gr';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'gr' ? 'en' : 'gr';
+            const btn = document.querySelector('.lang-switch');
+            btn.textContent = currentLang === 'gr' ? 'EN' : 'GR';
+
+            // Switch text content
+            document.querySelectorAll('[data-gr]').forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('privacyModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('privacyModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
